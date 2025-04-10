@@ -1,0 +1,29 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create directory
+        run: mkdir -p docs
+      - name: Converts markdown text to HTML
+        uses: jaywcjlove/markdown-to-html-cli@v5.0.3
+        with:
+          title: ${{ github.event.repository.name }}
+          description: ${{ github.event.repository.description }}
+          source: index.md
+          output: docs/index.html
+          dark-mode: auto
+          markdown-style-theme: dark
+          github-corners: ${{  github.event.repository.html_url }}
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
