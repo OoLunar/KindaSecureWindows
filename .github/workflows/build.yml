@@ -19,6 +19,7 @@ jobs:
           title: ${{ github.event.repository.name }}
           description: ${{ github.event.repository.description }}
           source: index.md
+          style: index.css
           output: docs/index.html
           dark-mode: auto
           markdown-style-theme: dark
