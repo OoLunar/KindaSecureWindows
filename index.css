@@ -1,0 +1,9 @@
+dark-mode {
+    display: inline-block;
+    background-color: var(--color-fg-subtle);
+    color: var(--color-fg-default);
+    padding: 5px;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative !important;
+}
