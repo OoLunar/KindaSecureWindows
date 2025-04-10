@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Create directory
-        run: mkdir -p docs
+      - name: Prepare Docs folder
+        run: mkdir -p docs && mv data img docs
       - name: Converts markdown text to HTML
         uses: jaywcjlove/markdown-to-html-cli@v5.0.3
         with:
